@@ -12,7 +12,7 @@ pipeline {
         stage('Run Docker container') {
             steps {
                 script {
-                    dockerContainer = dockerImage.run('-d -p 3000:3000')
+                    dockerContainer = dockerImage.run('-d -p 3001:3001')
                 }
             }
         }
@@ -20,7 +20,7 @@ pipeline {
             steps {
                 script {
                     sleep 5
-                    sh 'curl -f http://localhost:3000/travel'
+                    sh 'curl -f http://localhost:3001/travel'
                 }
             }
         }
