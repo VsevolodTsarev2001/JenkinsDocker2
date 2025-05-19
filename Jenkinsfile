@@ -32,14 +32,4 @@ pipeline {
             }
         }
     }
-    post {
-        always {
-            // Остановить и удалить контейнер после завершения пайплайна
-            sh '''
-                if [ $(docker ps -aq -f name=$CONTAINER_NAME) ]; then
-                  docker rm -f $CONTAINER_NAME
-                fi
-            '''
-        }
-    }
 }
